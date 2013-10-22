@@ -1,0 +1,180 @@
+#include <stdio.h> //Temel giriş ve çıkış fonksiyonlarını içeren kütüphane.
+#include <conio.h> //getch() fonksiyonunu içeren kütüphane.
+#include <string.h> //String ile işlem yapan strcmp() fonksiyonunu içeren kütüphane.
+
+
+#define gecerlisifre 12345 //#define ile tanımlama işlemlerini yapıyoruz.
+#define gecerlihesapno 456  //Bu ifadeleri kullandığımız zaman doğrulukları bu şekilde kontrol edilecek.
+
+
+//kullanıcı adı: ozen
+//şifre: 12345
+//Transfer hesap no:456
+
+
+int main() //ana fonksiyon
+	
+{
+	
+  char kullanici[]={NULL};
+	int sifre,secim;
+	int toplamParam=1000; //Başlangıç parasını 1000 olarak belirledik.
+	int paraYatirma=0;
+	int paraCekme=0;
+	int paraTransferi=0;
+	int hesapno1=0;
+
+	
+	printf("\nOZEN BANKASINA HOSGELDINIZ ");
+	printf("\n");
+  printf("\n-----------------------------");
+  printf("\n\nKullanici Girisi Ekrani.\n\n");
+	
+	
+		do
+{
+	printf("\nKullanici adinizi giriniz: ");
+	scanf("%s", &kullanici);//Kullanıcı adını string olarak alması için %s kullandık.
+	
+	
+	if( strcmp(kullanici,"ozen") == 0)  //if-else kontrol yapısı ile kullanıcı adının doğru veya yanlış olma durumlarını belirliyoruz.
+	                                    // "strcmp" ifadesi string compare anlamına gelir.Girdiğimiz kullanıcı adını tanımladığımız string ile karşılaştırır.
+	                                   	// ==0 doğru olup olmadığının kontrolü için kullanılıyor.
+	
+	{
+	 
+	  printf("\nUYARI!!: guvenlik amaciyla sifrenizi kimseye gostermeyiniz.\n");
+	 	printf("\nSifrenizi giriniz: \n");
+		scanf ("%d",&sifre);
+
+		 
+		 	   
+		   while(sifre!=gecerlisifre) //while kullanarak şifre doğru olana kadar aşağıdakileri göster diyoruz.
+		  { 
+				
+				printf("Sifre yanlis.\n");
+		    printf("\nLutfen sifrenizi tekrar giriniz: \n");  
+				scanf ("%d",&sifre);
+		  }
+		   
+		  
+				     
+     }
+
+    
+	  else
+
+    {	
+	     printf("Kullanici adi yanlis.\n");
+		 		
+	}
+}
+	
+	while(strcmp(kullanici,"ozen") != 0 ); 
+
+	//yukarıda do-while kullanarak menüye dönüyoruz,kullanıcı adı ozen olmadığı sürece döngüde kalıyoruz.
+	//ozen olduğu anda döngüden çıkarak aşağıdaki menüye giriyoruz.
+
+	system("cls"); //Döngüden çıktıktan sonra ekranı temizle komutunu verdik.
+	while(1)  //Menünün sürekli dönmesi için while(1) kullanıyoruz.
+{             
+	
+  	printf("\n\n\nBANKA ISLEMLERI MENUSU\n");
+    printf("\n1.Bakiye Sorgulama\n");
+    printf("\n2.Para Yatirma \n");
+    printf("\n3. Para Cekme\n");
+    printf("\n4. Para Transferi\n");
+    printf("\n5. Cikis\n");
+    printf("\n>>Yapmak istediginiz islemi seciniz:\n\n ");
+    scanf("%d",&secim);
+	
+		
+	    switch(secim) //switch-case kontrol yapısı ile işlem kollarını ayrı ayrı inceliyoruz.
+                      //İfade hangisine eşit ise program o kola yönelir.
+		{
+  case 1:
+    
+      printf("\n\n\tKullanici adiniz: %s\n\n",kullanici);  
+      printf("\n\tBakiyeniz: %d YTL\n\n\n",toplamParam);  //toplamParam'a ait sayıları ekrana çağırmak için %d kullandık.
+      break; //Blok işlem gördükten sonra switch ile başlayan bloğun dışına çıkılmasını sağlar.
+     
+  case 2:
+
+      printf("\n\n\tYatirilacak Para Miktari: ");
+      scanf("%d",&paraYatirma); 
+      toplamParam += paraYatirma; 
+      printf("\n\tParaniz Hesabiniza Yatirilmistir.\n"); 
+      printf("\n\n\n\tYeni Toplam Bakiyeniz: %d YTL\n\n\n",toplamParam); 
+      break;
+
+     
+  case 3:
+
+	    printf("\tCekilecek Para Miktari: \n");
+      scanf("%d",&paraCekme);
+
+
+      if(toplamParam>=paraCekme)
+{
+      printf("\tcekilen para miktari: %d YTL \n",paraCekme);
+      toplamParam=(toplamParam)-(paraCekme);
+      printf("\thesabinizda %d YTL kalmistir.\n\n\n",toplamParam); 
+}
+
+	  else
+{
+       printf("Bakiye yetersiz..\n\n\n ");
+}
+       break;
+
+   case  4:
+
+     printf("Para transfer edilecek hesap numarasini giriniz: \n");
+	   scanf("%d",&hesapno1);
+
+	  if(hesapno1==gecerlihesapno) //if-else kontrol yapısı ile hesap numarasının doğru veya yanlış olma durumlarını belirliyoruz.
+{
+      printf("\tTransfer Edilecek Para Miktari:\n ");
+      scanf("%d",&paraTransferi);
+
+	
+      if(toplamParam>=paraTransferi) //  Transfer işleminin yönelimini belirlemek için if-else'in içinde tekrar if-else kullandık.
+   {
+      printf("\tTransfer edilen para miktari: %d YTL\n",paraTransferi);
+      toplamParam=(toplamParam)-(paraTransferi);
+      printf("\tTransfer isleminiz gerceklesmistir.\n");
+      printf("\tHesabinizda %d YTL kalmistir.\n\n\n",toplamParam); 
+
+    }
+
+	  else
+    {
+     printf("Bakiye yetersiz.. \n\n\n");
+    }
+}
+	
+     else
+{
+  	printf("Girdiginiz hesap numarasi gecerli degil.\n");
+    printf("Lutfen tekrar deneyin.\n\n\n");
+}
+	break;
+
+		
+	
+   case 5:
+
+	    exit(0);  //  Programı sonlandırmak için exit(0) yazıyoruz.
+	    break;
+	
+	  
+		} 
+	
+	}			
+	
+	getch();
+    return 0;
+	 
+ }
+
+ 
