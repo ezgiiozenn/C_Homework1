@@ -1,0 +1,44 @@
+#include <stdio.h>// Standart giriş çıkış işlemleri kütüphanesi.
+#include <conio.h> // getch() komutunu içeren kütüphane.
+
+int main ()
+
+{
+	int a; //Dört basamaklı sayıyı temsil eden integer değerini a olarak adlandırdık.
+	int b,c,d,e; //Dört basamaklı sayının rakamlarını temsil eden integerları tanımladık.
+	
+	
+	printf("Cozumlenecek sayi= ");
+	scanf("%d", &a);
+	printf("\nGirilen sayi %d\n",a);
+	
+
+		
+	if ( (a < 1000) || (a > 9999))//Sayının dört basamaklı olup olmadığını kontrol eden if-else kontrol yapısı.
+			                          //Sayı dört basamaklı değil ise yeni bir sayi girmemizi ister.
+	 
+	{
+		  printf("Girdiginiz sayi dort basamakli degil\n");
+	    printf("Lutfen tekrar deneyiniz..");
+		
+	}
+	
+	
+	else //Girilen sayı dört basamaklı ise bu adıma geçer.
+	   {
+		
+       	b=a / 1000;// A sayısının 1000 sayısı ile bölümü binler basamağını verir.
+		printf("\n\n%d tane binlik sayi\n",b);
+		c=(a%1000) / 100;// A sayısının 1000 sayısı ile bölümünden kalan sayının, 100 ile bölümü yüzler basamağını verir.
+		printf("\n\n%d tane yuzluk sayi\n",c);
+		d=((a%100)/10);// A sayısının 100 ile bölümünden kalan sayının, 10 ile bölümü kalan sayı onlar basamağını verir. 
+		printf("\n\n%d tane onluk sayi\n",d);
+		e=(a%100) % 10;//A sayısının 100 ile bölümünden kalan sayının, 10 ile bölümünden kalan sayı birler basamağını verir.
+		printf("\n\n%d tane birlik sayi vardir.\n",e);
+
+	   }
+	 
+	
+	getch();
+	return 0;
+	}
