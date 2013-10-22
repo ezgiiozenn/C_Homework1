@@ -1,4 +1,5 @@
 #include <stdio.h> //Temel giriş ve çıkış fonksiyonlarını içeren kütüphane.
+#include <stdlib.h>
 #include <conio.h> //getch() fonksiyonunu içeren kütüphane.
 #include <string.h> //String ile işlem yapan strcmp() fonksiyonunu içeren kütüphane.
 
