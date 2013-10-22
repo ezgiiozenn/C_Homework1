@@ -28,11 +28,11 @@ int main() //ana fonksiyon
 	
 	printf("\nOZEN BANKASINA HOSGELDINIZ ");
 	printf("\n");
-  printf("\n-----------------------------");
-  printf("\n\nKullanici Girisi Ekrani.\n\n");
+        printf("\n-----------------------------");
+        printf("\n\nKullanici Girisi Ekrani.\n\n");
+  	
 	
-	
-		do
+	do
 {
 	printf("\nKullanici adinizi giriniz: ");
 	scanf("%s", &kullanici);//Kullanıcı adını string olarak alması için %s kullandık.
@@ -40,7 +40,7 @@ int main() //ana fonksiyon
 	
 	if( strcmp(kullanici,"ozen") == 0)  //if-else kontrol yapısı ile kullanıcı adının doğru veya yanlış olma durumlarını belirliyoruz.
 	                                    // "strcmp" ifadesi string compare anlamına gelir.Girdiğimiz kullanıcı adını tanımladığımız string ile karşılaştırır.
-	                                   	// ==0 doğru olup olmadığının kontrolü için kullanılıyor.
+	                                    // ==0 doğru olup olmadığının kontrolü için kullanılıyor.
 	
 	{
 	 
@@ -53,9 +53,9 @@ int main() //ana fonksiyon
 		   while(sifre!=gecerlisifre) //while kullanarak şifre doğru olana kadar aşağıdakileri göster diyoruz.
 		  { 
 				
-				printf("Sifre yanlis.\n");
+		    printf("Sifre yanlis.\n");
 		    printf("\nLutfen sifrenizi tekrar giriniz: \n");  
-				scanf ("%d",&sifre);
+		    scanf ("%d",&sifre);
 		  }
 		   
 		  
@@ -80,7 +80,7 @@ int main() //ana fonksiyon
 	while(1)  //Menünün sürekli dönmesi için while(1) kullanıyoruz.
 {             
 	
-  	printf("\n\n\nBANKA ISLEMLERI MENUSU\n");
+    printf("\n\n\nBANKA ISLEMLERI MENUSU\n");
     printf("\n1.Bakiye Sorgulama\n");
     printf("\n2.Para Yatirma \n");
     printf("\n3. Para Cekme\n");
@@ -91,7 +91,7 @@ int main() //ana fonksiyon
 	
 		
 	    switch(secim) //switch-case kontrol yapısı ile işlem kollarını ayrı ayrı inceliyoruz.
-                      //İfade hangisine eşit ise program o kola yönelir.
+                          //İfade hangisine eşit ise program o kola yönelir.
 		{
   case 1:
     
@@ -111,7 +111,7 @@ int main() //ana fonksiyon
      
   case 3:
 
-	    printf("\tCekilecek Para Miktari: \n");
+      printf("\tCekilecek Para Miktari: \n");
       scanf("%d",&paraCekme);
 
 
@@ -131,7 +131,7 @@ int main() //ana fonksiyon
    case  4:
 
      printf("Para transfer edilecek hesap numarasini giriniz: \n");
-	   scanf("%d",&hesapno1);
+     scanf("%d",&hesapno1);
 
 	  if(hesapno1==gecerlihesapno) //if-else kontrol yapısı ile hesap numarasının doğru veya yanlış olma durumlarını belirliyoruz.
 {
